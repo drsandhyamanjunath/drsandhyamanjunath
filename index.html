@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandhya Manjunath: Sport. Leadership. Mentorship.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --sky:#C7D2F2;
+  --sky-deep:#AEBEEC;
+  --ultra:#2A3FC4;
+  --ultra-deep:#1D2B9E;
+  --ultra-night:#161F72;
+  --ink:#0F1A2E;
+  --slate:#33406B;
+  --gold:#C79A3E;
+  --line:rgba(15,26,46,0.16);
+  --card:#FFFFFF;
+  --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--sky);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+::selection{background:var(--ultra);color:#fff;}
+img{display:block;max-width:100%;}
+a{color:var(--ultra);text-decoration:none;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+@media(max-width:600px){.wrap{padding:0 20px;}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+nav{position:sticky;top:0;z-index:80;background:rgba(199,210,242,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav-in{max-width:1200px;margin:0 auto;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid var(--ultra-night);flex-shrink:0;}
+.brand-mark img{width:100%;height:100%;object-fit:cover;}
+.nav-name{font-family:'Fraunces',serif;font-weight:600;font-size:21px;color:var(--ultra-night);}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{font-size:15.5px;color:var(--slate);font-weight:600;}
+.nav-links a:hover{color:var(--ultra);}
+@media(max-width:720px){.nav-links{display:none;}}
+
+.hero{position:relative;min-height:96vh;display:flex;align-items:center;overflow:hidden;background:var(--ultra-night);}
+.hero-video{position:absolute; inset:0;width:100%; height:100%;object-fit:cover;z-index:0;opacity:0.92;}
+.hero-overlay{position:absolute; inset:0;background:linear-gradient(115deg, rgba(22,31,114,0.90) 0%, rgba(29,43,158,0.55) 42%, rgba(29,43,158,0.18) 65%, rgba(22,31,114,0.78) 100%);z-index:1;}
+.hero-content{position:relative; z-index:2;width:100%;padding:110px 32px 70px;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center;}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:36px;}}
+.hero-portrait{border-radius:30px;overflow:hidden;border:5px solid rgba(255,255,255,0.9);box-shadow:0 26px 64px rgba(6,12,32,0.5);aspect-ratio:4/5;}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;}
+@media(max-width:900px){.hero-portrait{max-width:300px;margin:0 auto;order:-1;}}
+.hero-eyebrow{font-size:15px;font-weight:600;letter-spacing:0.02em;color:#C6D6F2;margin-bottom:20px;}
+.hero h1{font-size:clamp(40px,5.4vw,62px);line-height:1.06;color:#fff;margin-bottom:22px;font-weight:600;}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500;}
+.hero-sub{font-size:19px;color:#E5EDFA;max-width:580px;margin-bottom:32px;}
+.hero-stat-row{display:flex;gap:38px;flex-wrap:wrap;}
+.hstat b{display:block;font-family:'Fraunces',serif;font-size:32px;color:#fff;font-weight:600;}
+.hstat span{font-size:14px;color:#B7CBEE;font-weight:500;}
+
+.identity{padding:50px 0;text-align:center;background:var(--sky);}
+.identity-line{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:clamp(22px,3vw,30px);color:var(--ultra-night);max-width:900px;margin:0 auto;line-height:1.4;}
+
+section{padding:76px 0;}
+.sec-label{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:clamp(22px,2.6vw,30px);color:var(--ultra);margin-bottom:14px;}
+.sec-head h2{font-size:28px;margin-bottom:22px;color:var(--ink);font-weight:600;}
+.sec-head p.sec-sub{font-size:19px;color:var(--slate);max-width:660px;margin-bottom:6px;}
+
+/* FOUR ASPECTS - equal height cards, photo + title together */
+.aspects-row{display:flex;gap:16px;align-items:stretch;}
+@media(max-width:900px){.aspects-row{flex-direction:column;}}
+.aspect-slot{position:relative;flex:1;min-width:0;display:flex;}
+.aspect-base{
+  position:relative; z-index:1;
+  width:100%;
+  border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(160deg, var(--ultra) 0%, var(--ultra-night) 100%);
+  padding:26px 24px;cursor:pointer;
+  box-shadow:0 14px 34px rgba(15,26,46,0.18);
+  transition:transform .3s ease;
+  display:flex;flex-direction:column;
+}
+.aspect-slot:hover .aspect-base{transform:scale(1.02);}
+.aspect-num{font-family:'Fraunces',serif;font-size:15px;color:rgba(255,255,255,0.55);font-weight:600;margin-bottom:10px;}
+.aspect-base-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:#fff;margin-bottom:16px;min-height:64px;display:flex;align-items:flex-start;}
+.aspect-peek{display:flex;gap:10px;margin-top:auto;}
+.peek-photo{flex:1;height:100px;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,0.4);}
+.peek-photo img{width:100%;height:100%;object-fit:cover;}
+.aspect-overlay{
+  position:absolute; z-index:5; top:0; left:0; right:0;
+  border-radius:var(--radius);
+  background:linear-gradient(160deg, var(--ultra) 0%, var(--ultra-night) 100%);
+  box-shadow:0 30px 70px rgba(6,12,32,0.4);
+  padding:36px 30px;
+  max-height:0; opacity:0; pointer-events:none;
+  overflow:hidden;
+  transition:max-height .5s cubic-bezier(.2,.8,.2,1), opacity .35s ease;
+  text-align:center;
+}
+.aspect-slot:hover .aspect-overlay{max-height:760px;opacity:1;pointer-events:auto;}
+.overlay-title{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:#fff;margin-bottom:14px;}
+.overlay-text{font-size:16px;line-height:1.65;color:#E4EAFB;margin-bottom:20px;}
+.overlay-photos{display:flex;gap:10px;justify-content:center;}
+.overlay-photo{flex:1;height:150px;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,0.5);background:var(--ultra-night);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.25);}
+.overlay-photo img{width:100%;height:100%;object-fit:contain;}
+@media(max-width:900px){
+  .aspect-overlay{position:static;max-height:none;opacity:1;pointer-events:auto;display:none;margin-top:10px;}
+  .aspect-slot.mobile-open .aspect-overlay{display:block;}
+}
+
+/* GLOBAL marquee */
+.global-band{background:var(--ultra-night);color:#fff;padding:70px 0 80px;overflow:hidden;}
+.global-band .sec-label{color:#D7C88A;}
+.global-top{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:46px;}
+.global-num{font-family:'Fraunces',serif;font-size:100px;font-weight:600;color:var(--gold);line-height:1;}
+.global-sub{font-size:19px;color:#D3DFF6;max-width:500px;}
+.marquee-outer{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
+.marquee-track{display:flex;gap:18px;width:max-content;animation:marquee 55s linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.global-tile{width:230px;height:280px;border-radius:20px;overflow:hidden;flex-shrink:0;cursor:pointer;position:relative;}
+.global-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.global-tile:hover img{transform:scale(1.08);}
+.global-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,16,50,0) 55%, rgba(10,16,50,0.88) 100%);}
+.global-tile-label{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;color:#fff;font-size:14px;font-weight:700;}
+
+/* JOURNEY - wavy path with hover pointers */
+.journey-path-wrap{position:relative;height:420px;margin-top:40px;padding-top:50px;}
+.journey-svg{position:absolute;inset:0;width:100%;height:100%;}
+.journey-point{
+  position:absolute;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--gold);border:4px solid var(--card);
+  box-shadow:0 6px 16px rgba(15,26,46,0.25);
+  cursor:pointer;
+  transform:translate(-50%,-50%);
+  z-index:3;
+  transition:transform .25s ease;
+}
+.journey-point:hover{transform:translate(-50%,-50%) scale(1.3);}
+.journey-label{
+  position:absolute;
+  transform:translate(-50%,0);
+  z-index:4;
+  background:rgba(199,210,242,0.94);
+  padding:6px 12px;border-radius:8px;
+  white-space:nowrap;
+  pointer-events:none;
+  text-align:center;
+}
+.journey-label .lbl-role{font-size:17px;font-weight:700;color:var(--ink);font-family:'Fraunces',serif;}
+.journey-label .lbl-org{font-size:12.5px;font-weight:500;color:var(--slate);margin-top:1px;}
+.journey-tip{
+  position:absolute;
+  width:230px;
+  background:var(--card);
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:0 20px 46px rgba(15,26,46,0.22);
+  z-index:10;
+  opacity:0;pointer-events:none;
+  transform:translate(-50%,10px);
+  transition:opacity .25s ease, transform .25s ease;
+}
+.journey-point:hover + .journey-tip, .journey-tip:hover{opacity:1;pointer-events:auto;transform:translate(-50%,0);}
+.journey-tip.edge-left{transform:translate(-8%,10px);}
+.journey-point:hover + .journey-tip.edge-left, .journey-tip.edge-left:hover{transform:translate(-8%,0);}
+.journey-tip.edge-right{transform:translate(-92%,10px);}
+.journey-point:hover + .journey-tip.edge-right, .journey-tip.edge-right:hover{transform:translate(-92%,0);}
+.journey-tip .yr{font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;}
+.journey-tip .role{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.journey-tip .org{font-size:13.5px;color:var(--slate);}
+@media(max-width:900px){
+  .journey-path-wrap{display:none;}
+  .journey-fallback{display:flex;}
+}
+.journey-fallback{display:none;gap:18px;overflow-x:auto;padding-bottom:10px;}
+.journey-fallback .journey-card{min-width:240px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;flex-shrink:0;}
+.journey-fallback .yr{font-size:13.5px;font-weight:700;color:var(--gold);margin-bottom:8px;}
+.journey-fallback .role{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.journey-fallback .org{font-size:13.5px;color:var(--slate);}
+
+/* contact */
+.contact-sec{background:linear-gradient(180deg, var(--sky) 0%, var(--sky-deep) 100%);padding:100px 0 60px;position:relative;overflow:hidden;}
+.contact-sec::before{content:"";position:absolute;top:-120px;right:-120px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle, rgba(199,154,62,0.25), transparent 70%);}
+.contact-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:56px;align-items:center;position:relative;z-index:2;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.contact-head h2{font-size:clamp(34px,4.4vw,52px);color:var(--ink);margin-bottom:18px;}
+.contact-head p{font-size:19px;color:var(--slate);max-width:520px;margin-bottom:34px;}
+.contact-buttons{display:flex;gap:14px;flex-wrap:wrap;}
+.contact-btn{padding:16px 26px;border:2px solid var(--ultra-night);border-radius:6px;font-weight:700;font-size:15.5px;color:var(--ultra-night);background:#fff;transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;}
+.contact-btn:hover{background:var(--ultra-night);color:#fff;transform:translateY(-4px);box-shadow:0 14px 28px rgba(22,31,114,0.3);}
+.contact-photo{border-radius:26px;overflow:hidden;border:5px solid #fff;box-shadow:0 26px 60px rgba(15,26,46,0.25);aspect-ratio:4/3;}
+.contact-photo img{width:100%;height:100%;object-fit:cover;}
+.contact-foot{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);font-size:14px;color:var(--slate);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;position:relative;z-index:2;}
+
+.lightbox{position:fixed; inset:0; z-index:200;background:rgba(9,14,30,0.94);display:none;align-items:center; justify-content:center;padding:30px;}
+.lightbox.open{display:flex;}
+.lightbox-inner{max-width:900px; width:100%;background:var(--ultra-night); border-radius:26px; overflow:hidden;max-height:86vh;box-shadow:0 40px 100px rgba(0,0,0,0.5);}
+.lightbox-img{background:#000;display:flex;align-items:center;justify-content:center;max-height:70vh;}
+.lightbox-img img{max-height:70vh;width:100%;object-fit:contain;}
+.lightbox-text{padding:32px 40px;color:#EAF1F7;}
+.lightbox-text h3{font-size:22px;color:#fff;margin-bottom:8px;font-weight:600;}
+.lightbox-close{position:absolute; top:24px; right:30px; z-index:210;color:#fff; font-size:26px; cursor:pointer; line-height:1;background:rgba(255,255,255,0.14); width:44px;height:44px;border-radius:50%;display:flex; align-items:center; justify-content:center;}
+.lightbox-close:hover{background:rgba(255,255,255,0.28);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand">
+      <div class="brand-mark"><img src="profile-speaking-cropped.jpg" alt="Sandhya Manjunath"></div>
+      <div class="nav-name">Sandhya Manjunath</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#aspects">Aspects</a></li>
+      <li><a href="#global">Global</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="bg-video-poster.jpg">
+    <source src="bg-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">HART SCHOOL OF HOSPITALITY, SPORT &amp; RECREATION MANAGEMENT · JAMES MADISON UNIVERSITY</div>
+        <h1>Twenty years in sport.<br>One goal: <em>bring people up with you.</em></h1>
+        <p class="hero-sub">Coaching, teaching, and leading across FIBA, the NCAA, the Dallas Mavericks, and now the FIFA World Cup, on the court and in the classroom.</p>
+        <div class="hero-stat-row">
+          <div class="hstat"><b>20+</b><span>Countries</span></div>
+          <div class="hstat"><b>20</b><span>Years in sport</span></div>
+          <div class="hstat"><b>13</b><span>Youth centers founded</span></div>
+          <div class="hstat"><b>250+</b><span>Interns mentored</span></div>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="profile-speaking-cropped.jpg" alt="Dr. Sandhya Manjunath presenting at the NASSM Annual Conference">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="identity">
+  <div class="wrap">
+    <p class="identity-line">Twenty years spent building sport into careers, programs, and championships, on the court, in the classroom, and everywhere in between.</p>
+  </div>
+</section>
+
+<section id="aspects" class="wrap">
+  <div class="sec-head reveal">
+    <div class="sec-label">Four Sides of One Career</div>
+    <h2>Hover to Explore</h2>
+    <p class="sec-sub">Four aspects, one career. Hover any panel, or tap on mobile, for the full story.</p>
+  </div>
+
+  <div class="aspects-row" id="aspects-panel">
+
+    <div class="aspect-slot" data-index="0">
+      <div class="aspect-base">
+        <div class="aspect-num">01</div>
+        <div class="aspect-base-title">Professor</div>
+        <div class="aspect-peek">
+          <div class="peek-photo"><img src="moment-buccaneers-jmu.jpg" alt="JMU students at Tampa Bay Buccaneers HQ"></div>
+          <div class="peek-photo"><img src="moment-final-four.jpg" alt="NCAA Final Four volunteer group"></div>
+        </div>
+      </div>
+      <div class="aspect-overlay">
+        <div class="overlay-title">Professor</div>
+        <p class="overlay-text">Assistant Professor at James Madison University's Hart School since 2023. Teaching sport management, leading student cohorts into the field, from NCAA championships to the FIFA World Cup and professional franchises like the Tampa Bay Buccaneers.</p>
+        <div class="overlay-photos">
+          <div class="overlay-photo"><img src="moment-buccaneers-jmu.jpg" alt="JMU students at Tampa Bay Buccaneers HQ"></div>
+          <div class="overlay-photo"><img src="moment-final-four.jpg" alt="NCAA Final Four volunteer group"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="aspect-slot" data-index="1">
+      <div class="aspect-base">
+        <div class="aspect-num">02</div>
+        <div class="aspect-base-title">Mentor &amp; Consultant</div>
+        <div class="aspect-peek">
+          <div class="peek-photo"><img src="moment-coaching.jpg" alt="Coaching a young athlete"></div>
+          <div class="peek-photo"><img src="moment-packers-ring.jpg" alt="Green Bay Packers site visit"></div>
+        </div>
+      </div>
+      <div class="aspect-overlay">
+        <div class="overlay-title">Mentor &amp; Consultant</div>
+        <p class="overlay-text">Coaching youth athletes courtside. Guiding 250-plus interns through FIBA-sanctioned events in India. Consulting with RedCAP on research and development. Mentorship, at every stage of the game.</p>
+        <div class="overlay-photos">
+          <div class="overlay-photo"><img src="moment-coaching.jpg" alt="Coaching a young athlete"></div>
+          <div class="overlay-photo"><img src="moment-packers-ring.jpg" alt="Green Bay Packers site visit"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="aspect-slot" data-index="2">
+      <div class="aspect-base">
+        <div class="aspect-num">03</div>
+        <div class="aspect-base-title">Entrepreneur</div>
+        <div class="aspect-peek">
+          <div class="peek-photo"><img src="moment-atsiy-dallas.jpg" alt="ATSIY youth group with Dallas Mavericks"></div>
+          <div class="peek-photo"><img src="moment-youth-champion.jpg" alt="National basketball championship, 2017"></div>
+        </div>
+      </div>
+      <div class="aspect-overlay">
+        <div class="overlay-title">Entrepreneur</div>
+        <p class="overlay-text">Founder of Awaken The Sportsman In You since 2016, a youth physical education organization now running across 13 centers in India. A personal platform for sport, built well before stepping into a classroom to teach it.</p>
+        <div class="overlay-photos">
+          <div class="overlay-photo"><img src="moment-atsiy-dallas.jpg" alt="ATSIY youth group with Dallas Mavericks"></div>
+          <div class="overlay-photo"><img src="moment-youth-champion.jpg" alt="National basketball championship, 2017"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="aspect-slot" data-index="3">
+      <div class="aspect-base">
+        <div class="aspect-num">04</div>
+        <div class="aspect-base-title">Researcher</div>
+        <div class="aspect-peek">
+          <div class="peek-photo"><img src="moment-wasm-poster.jpg" alt="WASM conference poster presentation"></div>
+          <div class="peek-photo"><img src="moment-nassm-keynote.jpg" alt="NASSM conference presentation"></div>
+        </div>
+      </div>
+      <div class="aspect-overlay">
+        <div class="overlay-title">Researcher</div>
+        <p class="overlay-text">Research on sport management education and mega sport events, presented at conference stages in Doha, Paris, and beyond. Recognized with the Outstanding Research Contribution Award from the Indian Sport Management Association.</p>
+        <div class="overlay-photos">
+          <div class="overlay-photo"><img src="moment-wasm-poster.jpg" alt="WASM conference poster presentation"></div>
+          <div class="overlay-photo"><img src="moment-nassm-keynote.jpg" alt="NASSM conference presentation"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="global-band" id="global">
+  <div class="wrap">
+    <div class="global-top reveal">
+      <div>
+        <div class="sec-label">Global Footprint</div>
+        <div class="global-num">20+</div>
+      </div>
+      <p class="global-sub">Countries worked, competed, coached, or presented research in, carrying sport management expertise across continents for two decades.</p>
+    </div>
+  </div>
+  <div class="marquee-outer">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="global-tile" data-title="Paris 2024" data-text="Carrying the Paris 2024 Olympic and Paralympic torch."><img src="moment-paris-2024.jpg" alt="Paris 2024 Olympic torch"><div class="global-tile-label">Paris, France</div></div>
+      <div class="global-tile" data-title="FIFA World Cup 2026" data-text="Leading the JMU flag presentation team in Philadelphia."><img src="moment-worldcup-trophy-group.jpg" alt="FIFA World Cup 2026 group with trophy"><div class="global-tile-label">Philadelphia, USA</div></div>
+      <div class="global-tile" data-title="Standing With the Trophy" data-text="A quiet moment beside the FIFA World Cup itself."><img src="moment-fifa-trophy-replica.jpg" alt="FIFA World Cup trophy"><div class="global-tile-label">FIFA World Cup</div></div>
+      <div class="global-tile" data-title="INSMA Award" data-text="Accepting the Outstanding Research Contribution award."><img src="moment-insma-award.jpg" alt="INSMA research award"><div class="global-tile-label">Mumbai, India</div></div>
+      <div class="global-tile" data-title="Texas Woman's University" data-text="The years that built an academic and athletic foundation."><img src="moment-twu-portrait.jpg" alt="TWU basketball portrait"><div class="global-tile-label">Denton, Texas</div></div>
+      <div class="global-tile" data-title="Tampa Bay Buccaneers" data-text="A JMU Sports Management site visit to an NFL franchise."><img src="moment-buccaneers-group.jpg" alt="Tampa Bay Buccaneers group photo"><div class="global-tile-label">Tampa, Florida</div></div>
+      <div class="global-tile" data-title="FIFA World Cup Stadium" data-text="Match-day signage inside the Philadelphia venue."><img src="moment-stadium-signage.jpg" alt="FIFA World Cup stadium signage"><div class="global-tile-label">Philadelphia, USA</div></div>
+      <div class="global-tile" data-title="First Gold" data-text="A Karnataka State Basketball Association championship, 2017."><img src="moment-youth-champion.jpg" alt="Youth basketball championship"><div class="global-tile-label">Bengaluru, India</div></div>
+      <div class="global-tile" data-title="Coaching Is Presence" data-text="A quiet moment courtside with a young athlete."><img src="moment-coaching.jpg" alt="Coaching moment on court"><div class="global-tile-label">On the sidelines</div></div>
+      <div class="global-tile" data-title="ATSIY" data-text="With ATSIY students, alongside Dallas Mavericks staff."><img src="moment-atsiy-dallas.jpg" alt="ATSIY youth group with Dallas Mavericks"><div class="global-tile-label">Dallas, Texas</div></div>
+      <div class="global-tile" data-title="WASM Doha" data-text="Presenting research at the WASM Conference."><img src="moment-wasm-poster.jpg" alt="WASM conference poster"><div class="global-tile-label">Doha, Qatar</div></div>
+      <div class="global-tile" data-title="WASM Keynote" data-text="Taking the podium at WASM to speak on AI in sport education."><img src="moment-wasm-podium.jpg" alt="WASM conference podium"><div class="global-tile-label">Doha, Qatar</div></div>
+      <div class="global-tile" data-title="NASSM" data-text="Presenting research at the NASSM annual conference."><img src="moment-nassm-keynote.jpg" alt="NASSM keynote presentation"><div class="global-tile-label">United States</div></div>
+      <div class="global-tile" data-title="Championship Ring" data-text="A Green Bay Packers ring, from a JMU site visit."><img src="moment-packers-ring.jpg" alt="Green Bay Packers ring"><div class="global-tile-label">Green Bay Packers</div></div>
+      <div class="global-tile" data-title="NCAA Final Four" data-text="Faculty leader for the Hart School volunteer group."><img src="moment-final-four.jpg" alt="NCAA Final Four volunteer group"><div class="global-tile-label">NCAA Women's Final Four</div></div>
+      <div class="global-tile" data-title="Tampa Bay Buccaneers HQ" data-text="Leading JMU students inside an NFL front office."><img src="moment-buccaneers-jmu.jpg" alt="JMU trip to Buccaneers HQ"><div class="global-tile-label">Tampa, Florida</div></div>
+      <div class="global-tile"><img src="moment-paris-2024.jpg" alt="Paris 2024 Olympic torch"><div class="global-tile-label">Paris, France</div></div>
+      <div class="global-tile"><img src="moment-worldcup-trophy-group.jpg" alt="FIFA World Cup 2026 group with trophy"><div class="global-tile-label">Philadelphia, USA</div></div>
+      <div class="global-tile"><img src="moment-fifa-trophy-replica.jpg" alt="FIFA World Cup trophy"><div class="global-tile-label">FIFA World Cup</div></div>
+      <div class="global-tile"><img src="moment-insma-award.jpg" alt="INSMA research award"><div class="global-tile-label">Mumbai, India</div></div>
+      <div class="global-tile"><img src="moment-twu-portrait.jpg" alt="TWU basketball portrait"><div class="global-tile-label">Denton, Texas</div></div>
+      <div class="global-tile"><img src="moment-buccaneers-group.jpg" alt="Tampa Bay Buccaneers group photo"><div class="global-tile-label">Tampa, Florida</div></div>
+      <div class="global-tile"><img src="moment-stadium-signage.jpg" alt="FIFA World Cup stadium signage"><div class="global-tile-label">Philadelphia, USA</div></div>
+      <div class="global-tile"><img src="moment-youth-champion.jpg" alt="Youth basketball championship"><div class="global-tile-label">Bengaluru, India</div></div>
+      <div class="global-tile"><img src="moment-coaching.jpg" alt="Coaching moment on court"><div class="global-tile-label">On the sidelines</div></div>
+      <div class="global-tile"><img src="moment-atsiy-dallas.jpg" alt="ATSIY youth group with Dallas Mavericks"><div class="global-tile-label">Dallas, Texas</div></div>
+      <div class="global-tile"><img src="moment-wasm-poster.jpg" alt="WASM conference poster"><div class="global-tile-label">Doha, Qatar</div></div>
+      <div class="global-tile"><img src="moment-wasm-podium.jpg" alt="WASM conference podium"><div class="global-tile-label">Doha, Qatar</div></div>
+      <div class="global-tile"><img src="moment-nassm-keynote.jpg" alt="NASSM keynote presentation"><div class="global-tile-label">United States</div></div>
+      <div class="global-tile"><img src="moment-packers-ring.jpg" alt="Green Bay Packers ring"><div class="global-tile-label">Green Bay Packers</div></div>
+      <div class="global-tile"><img src="moment-final-four.jpg" alt="NCAA Final Four volunteer group"><div class="global-tile-label">NCAA Women's Final Four</div></div>
+      <div class="global-tile"><img src="moment-buccaneers-jmu.jpg" alt="JMU trip to Buccaneers HQ"><div class="global-tile-label">Tampa, Florida</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="journey" class="wrap">
+  <div class="sec-head reveal">
+    <div class="sec-label">The Short Version</div>
+    <h2>A Career in a Few Stops</h2>
+  </div>
+
+  <div class="journey-path-wrap" id="journeyWrap">
+    <svg class="journey-svg" viewBox="0 0 1200 340" preserveAspectRatio="none">
+      <defs>
+        <marker id="journeyArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#1D2B9E"/>
+        </marker>
+      </defs>
+      <path id="journeyPath" d="M 0 300 C 300 280, 500 180, 700 160 S 1000 60, 1190 40"
+            fill="none" stroke="#1D2B9E" stroke-width="3" stroke-dasharray="9 10" opacity="0.6" marker-end="url(#journeyArrow)"/>
+    </svg>
+  </div>
+
+  <div class="journey-fallback">
+    <div class="journey-card"><div class="yr">2016 to now</div><div class="role">Founder</div><div class="org">Awaken The Sportsman In You</div></div>
+    <div class="journey-card"><div class="yr">2017 to 2018</div><div class="role">Operations Manager</div><div class="org">Basketball Federation of India</div></div>
+    <div class="journey-card"><div class="yr">2019</div><div class="role">International Coordinator &amp; Coach</div><div class="org">Dallas Mavericks</div></div>
+    <div class="journey-card"><div class="yr">2019 to 2021</div><div class="role">Graduate Teaching Assistant</div><div class="org">Texas Woman's University</div></div>
+    <div class="journey-card"><div class="yr">2023 to now</div><div class="role">Assistant Professor</div><div class="org">Hart School, James Madison University</div></div>
+    <div class="journey-card"><div class="yr">2025 to now</div><div class="role">General Secretary</div><div class="org">Indian Sport Management Association</div></div>
+    <div class="journey-card"><div class="yr">2026</div><div class="role">Faculty Leader, FIFA World Cup</div><div class="org">James Madison University</div></div>
+  </div>
+</section>
+
+<section id="contact" class="contact-sec">
+  <div class="wrap">
+    <div class="contact-grid reveal">
+      <div class="contact-head">
+        <div class="sec-label">Let's Connect</div>
+        <h2>Ready to bring your team into the game.</h2>
+        <p>Open to speaking engagements, research collaboration, and conversations about sport management education.</p>
+        <div class="contact-buttons">
+          <a class="contact-btn" href="mailto:Manju2sx@jmu.edu">Email</a>
+          <a class="contact-btn" href="tel:+14699962832">Call</a>
+          <a class="contact-btn" href="https://www.jmu.edu/cob/faculty/all-faculty/manjunath-sandy.shtml" target="_blank">JMU Profile</a>
+          <a class="contact-btn" href="https://www.linkedin.com/in/drsandhyamanjunath/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="contact-photo">
+        <img src="moment-worldcup-trophy-group.jpg" alt="FIFA World Cup 2026 volunteer group">
+      </div>
+    </div>
+    <div class="contact-foot">
+      <span>Assistant Professor, Hart School of Hospitality, Sport &amp; Recreation Management, JMU</span>
+      <span>Harrisonburg, Virginia, United States</span>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">&times;</div>
+  <div class="lightbox-inner">
+    <div class="lightbox-img"><img id="lightboxImg" src="" alt=""></div>
+    <div class="lightbox-text">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxText"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.aspect-slot').forEach(slot => {
+  slot.addEventListener('click', () => slot.classList.toggle('mobile-open'));
+});
+
+// Journey path: compute exact positions along the SVG curve
+const journeyData = [
+  { t: 0.04, yr: "2016 to now", role: "Founder", org: "Awaken The Sportsman In You", side: "below", edge: "left" },
+  { t: 0.19, yr: "2017 to 2018", role: "Operations Manager", org: "Basketball Federation of India", side: "above" },
+  { t: 0.34, yr: "2019", role: "Coordinator & Coach", org: "Dallas Mavericks", side: "below" },
+  { t: 0.49, yr: "2019 to 2021", role: "Graduate Teaching Assistant", org: "Texas Woman's University", side: "above" },
+  { t: 0.64, yr: "2023 to now", role: "Assistant Professor", org: "Hart School, James Madison University", side: "below" },
+  { t: 0.79, yr: "2025 to now", role: "General Secretary", org: "Indian Sport Management Association", side: "above" },
+  { t: 0.94, yr: "2026", role: "Faculty Leader, FIFA World Cup", org: "James Madison University", side: "below", edge: "right" }
+];
+
+const journeyPath = document.getElementById('journeyPath');
+const journeyWrap = document.getElementById('journeyWrap');
+if (journeyPath && journeyWrap) {
+  const totalLength = journeyPath.getTotalLength();
+  const VB_W = 1200, VB_H = 340;
+  journeyData.forEach(d => {
+    const pt = journeyPath.getPointAtLength(d.t * totalLength);
+    const leftPct = (pt.x / VB_W) * 100;
+    const topPct = (pt.y / VB_H) * 100;
+
+    const dot = document.createElement('div');
+    dot.className = 'journey-point';
+    dot.style.left = leftPct + '%';
+    dot.style.top = topPct + '%';
+    journeyWrap.appendChild(dot);
+
+    const tip = document.createElement('div');
+    tip.className = 'journey-tip' + (d.edge === 'left' ? ' edge-left' : d.edge === 'right' ? ' edge-right' : '');
+    tip.style.left = leftPct + '%';
+    tip.style.top = (topPct + 14) + '%';
+    tip.innerHTML = '<div class="yr">'+d.yr+'</div><div class="role">'+d.role+'</div><div class="org">'+d.org+'</div>';
+    journeyWrap.appendChild(tip);
+
+    const label = document.createElement('div');
+    label.className = 'journey-label';
+    label.innerHTML = '<div class="lbl-role">'+d.role+'</div><div class="lbl-org">'+d.org+'</div>';
+    label.style.left = leftPct + '%';
+    label.style.top = d.side === 'above' ? (topPct - 15) + '%' : (topPct + 8) + '%';
+    if (d.side === 'above') label.style.transform = 'translate(-50%,-100%)';
+    if (d.edge === 'left') label.style.transform = (d.side === 'above' ? 'translate(-4%,-100%)' : 'translate(-4%,0)');
+    if (d.edge === 'right') label.style.transform = (d.side === 'above' ? 'translate(-96%,-100%)' : 'translate(-96%,0)');
+    journeyWrap.appendChild(label);
+  });
+}
+
+const tiles = document.querySelectorAll('.global-tile');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxText = document.getElementById('lightboxText');
+tiles.forEach(tile => {
+  tile.addEventListener('click', () => {
+    if(!tile.dataset.title) return;
+    const img = tile.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxTitle.textContent = tile.dataset.title;
+    lightboxText.textContent = tile.dataset.text;
+    lightbox.classList.add('open');
+  });
+});
+function closeLightbox(){ lightbox.classList.remove('open'); }
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
